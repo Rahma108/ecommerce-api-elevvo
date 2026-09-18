@@ -1,0 +1,13 @@
+
+import * as orderController from "./orderController";
+
+router.get("/", orderController.getOrders);
+
+router.get("/:id", orderController.getOrderById);
+
+router.post("/", orderController.createOrder);
+
+router.post(
+  "/checkout",
+  orderController.checkout,
+);
