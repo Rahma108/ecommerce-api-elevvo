@@ -1,40 +1,38 @@
-إليك ملف README.md احترافي ومنظم يعكس هيكلية المشروع الموضحة في الصورة (ecommerce-api-elevvo).
+# E-Commerce API (Elevvo)
 
-E-Commerce API (Elevvo)
-A robust backend RESTful API for an e-commerce platform built with Node.js, Express, TypeScript, and Prisma ORM.
+A scalable, modular RESTful API built with **Node.js**, **TypeScript**, **Express**, and **Prisma ORM**.
 
-🛠️ Tech Stack
-Runtime: Node.js
+---
 
-Language: TypeScript
+## 🏗️ Architecture & Project Structure
 
-Database ORM: Prisma
+The project follows a **Modular Architecture** to separate concerns, improve maintainability, and allow feature-based scalability.
 
-Architecture: Modular Domain-Driven Architecture
-
-📁 Project Structure
-Plaintext
+```text
 ecommerce-api-elevvo/
 ├── prisma/
-│   ├── migrations/          # Database schema migration histories
+│   ├── migrations/          # Database schema migrations history
 │   └── schema.prisma        # Database models & Prisma configuration
 ├── src/
-│   ├── common/
-│   │   └── repositories/    # Shared base repositories and data access layers
-│   ├── config/              # Infrastructure configurations (Prisma client setup)
-│   │   └── prisma.ts
-│   ├── config-env/          # Environment variable validation & management
-│   │   └── env.ts
-│   ├── generated/           # Auto-generated code (Prisma Client artifacts)
-│   ├── modules/             # Core business domains (Modular Pattern)
-│   │   ├── auth/            # Authentication & Authorization module
-│   │   ├── order/           # Order processing & management module
-│   │   ├── product/         # Product management & catalog module
-│   │   └── user/            # User profile & account management module
-│   └── main.ts              # Application entry point
-├── .env                     # Environment variables configuration
-├── .gitignore
-└── package.json
+│   ├── common/              # Shared logic & utilities across modules
+│   │   └── repositories/    # Base / Generic repository design pattern implementation
+│   ├── config/              # Infrastructure configurations
+│   │   └── prisma.ts        # Prisma Client singleton connection
+│   ├── config-env/          # Environment variables validation & setup
+│   │   └── env.ts           # Type-safe environment variable mapping
+│   ├── generated/           # Auto-generated Prisma client types & artifacts
+│   ├── modules/             # Core application domains (Modular Pattern)
+│   │   ├── auth/            # Authentication, JWT generation & guard middleware
+│   │   ├── order/           # Order placement, status workflows & checkout handling
+│   │   ├── product/         # Product catalog, stock management & categories
+│   │   └── user/            # User profile management & roles handling
+│   └── main.ts              # Application entry point & Express app bootstrap
+├── .env                     # Environment variables configuration file
+├── .gitignore               # Git ignored files configuration
+└── package.json             # Project dependencies and scripts
+```
+
+
 🚀 Key Modules & Architecture Details
 1. Modular Architecture (src/modules)
 The application follows a modular and scalable structure where each core feature is isolated into its own domain:
